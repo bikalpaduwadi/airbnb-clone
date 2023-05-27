@@ -19,7 +19,7 @@ model User {
   hashedPassword String?
   createdAt      DateTime  @default(now())
   updatedAt      DateTime  @default(now())
-  fovoriteIds    String[]  @db.ObjectId
+  favoriteIds    String[]  @db.ObjectId
 
   accounts     Account[]
   listings     Listing[]
@@ -67,7 +67,7 @@ model Listing {
 model Reservation {
   id         String   @id @default(auto()) @map("_id") @db.ObjectId
   startDate  DateTime
-  emdDate    DateTime
+  endDate    DateTime
   totalPrice Int
   createdAt  DateTime @default(now())
 
