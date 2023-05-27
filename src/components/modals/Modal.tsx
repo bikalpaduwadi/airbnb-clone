@@ -13,7 +13,7 @@ interface ModalProps {
   onSubmit: () => void;
   body?: React.ReactElement;
   footer?: React.ReactElement;
-  secondaryActionLabel: string;
+  secondaryActionLabel?: string;
   secondaryAction?: () => void;
 }
 
@@ -52,7 +52,7 @@ const Modal: FC<ModalProps> = ({
     }
 
     onSubmit();
-  }, [disabled, onsubmit]);
+  }, [disabled, onSubmit]);
 
   const handleSecondaryAction = useCallback(() => {
     if (disabled || !secondaryAction) {

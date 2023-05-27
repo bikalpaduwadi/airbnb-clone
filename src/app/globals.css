@@ -8,3 +8,10 @@ body,
   height: 100%;
   color: rgb(var(--foreground-rgb));
 }
+
+.leaflet-bottom,
+.leaflet-control,
+.leaflet-pane,
+.leaflet-top {
+  z-index: 0 !important;
+}

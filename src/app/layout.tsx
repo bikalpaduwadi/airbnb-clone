@@ -7,6 +7,8 @@ import ToasterProvider from '../providers/ToasterProvider';
 import RegisterModal from '../components/modals/RegisterModal';
 
 import './globals.css';
+import { AppUser } from '@/types/user';
+import RentModal from '@/components/modals/RentModal';
 import getCurrentUser from './actions/getCurrentUser';
 
 const font = Nunito({ subsets: ['latin'] });
@@ -21,7 +23,7 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const currentUser = await getCurrentUser();
+  const currentUser = (await getCurrentUser()) as AppUser;
 
   return (
     <html lang='en'>
@@ -30,6 +32,7 @@ export default async function RootLayout({
           <ToasterProvider />
           <RegisterModal />
           <LoginModal />
+          <RentModal />
           <Navbar currentUser={currentUser} />
         </ClientOnly>
         {children}

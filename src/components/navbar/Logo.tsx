@@ -7,8 +7,11 @@ import { useRouter } from 'next/navigation';
 interface LogoProps {}
 
 const Logo: FC<LogoProps> = ({}) => {
+  const router = useRouter();
+
   return (
     <Image
+      onClick={() => router.push('/')}
       src='/images/logo.png'
       className='hidden md:block cursor-pointer'
       alt='logo'
