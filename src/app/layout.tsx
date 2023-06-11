@@ -1,10 +1,10 @@
 import { Nunito } from 'next/font/google';
 
 import { AppUser } from '@/types/user';
+import getCurrentUser from './actions/user';
 import Navbar from '../components/navbar/Navbar';
 import ClientOnly from '../components/ClientOnly';
 import RentModal from '@/components/modals/RentModal';
-import getCurrentUser from './actions/getCurrentUser';
 import LoginModal from '../components/modals/LoginModal';
 import SearchModal from '@/components/modals/SearchModal';
 import ToasterProvider from '../providers/ToasterProvider';

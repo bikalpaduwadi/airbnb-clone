@@ -1,6 +1,6 @@
 import prisma from '@/libs/prismadb';
+import getCurrentUser from './user';
 import { AppListing } from '@/types/listing';
-import getCurrentUser from './getCurrentUser';
 
 export interface IListingParams {
   userId?: string;

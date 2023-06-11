@@ -3,8 +3,8 @@
 import { FC } from 'react';
 
 import Container from '../Container';
-import CATEGORIES from '@/constants/category';
 import CategoryBox from '../CategoryBox';
+import CATEGORIES from '@/constants/category';
 import { usePathname, useSearchParams } from 'next/navigation';
 
 interface CategoriesProps {}

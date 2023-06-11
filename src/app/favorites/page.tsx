@@ -1,8 +1,8 @@
+import getCurrentUser from '../actions/user';
 import FavoriteClient from './FavoriteClient';
 import EmptyState from '@/components/EmptyState';
 import ClientOnly from '@/components/ClientOnly';
-import getCurrentUser from '../actions/getCurrentUser';
-import { getFavoriteListings } from '../actions/getListings';
+import { getFavoriteListings } from '../actions/listings';
 
 const FavoritesPage = async ({}) => {
   const listings = await getFavoriteListings();

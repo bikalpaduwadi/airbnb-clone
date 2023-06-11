@@ -1,8 +1,8 @@
+import getCurrentUser from '../actions/user';
 import EmptyState from '@/components/EmptyState';
 import ClientOnly from '@/components/ClientOnly';
 import ReservationClient from './ReservationClient';
 import getReservations from '../actions/reservation';
-import getCurrentUser from '../actions/getCurrentUser';
 
 const ReservationPage = async ({}) => {
   const currentUser = await getCurrentUser();

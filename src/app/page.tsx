@@ -1,11 +1,13 @@
 import Image from 'next/image';
 
+import getCurrentUser from './actions/user';
 import Container from '@/components/Container';
 import ClientOnly from '@/components/ClientOnly';
 import EmptyState from '@/components/EmptyState';
-import getCurrentUser from './actions/getCurrentUser';
 import ListingCard from '@/components/listings/ListingCard';
-import getListings, { IListingParams } from './actions/getListings';
+import getListings, { IListingParams } from './actions/listings';
+
+export const dynamic = 'force-dynamic';
 
 interface HomePageProps {
   searchParams: IListingParams;

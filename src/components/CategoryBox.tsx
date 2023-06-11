@@ -3,7 +3,7 @@
 import qs from 'query-string';
 import { FC, useCallback } from 'react';
 
-import Category from '@/models/category';
+import Category from '@/models/Category';
 import { useRouter, useSearchParams } from 'next/navigation';
 
 interface CategoryBoxProps {
