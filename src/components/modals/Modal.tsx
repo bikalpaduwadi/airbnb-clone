@@ -2,12 +2,13 @@
 
 import { IoMdClose } from 'react-icons/io';
 import React, { FC, useCallback, useEffect, useState } from 'react';
+
 import Button from '../Button';
 
 interface ModalProps {
   title?: string;
   isOpen?: boolean;
-  disabled: boolean;
+  disabled?: boolean;
   actionLabel: string;
   onClose: () => void;
   onSubmit: () => void;

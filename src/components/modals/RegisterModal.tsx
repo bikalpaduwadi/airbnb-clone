@@ -1,19 +1,19 @@
 'use client';
 
 import axios from 'axios';
-import { useState, FC, useCallback } from 'react';
 import { toast } from 'react-hot-toast';
 import { signIn } from 'next-auth/react';
 import { FcGoogle } from 'react-icons/fc';
 import { AiFillGithub } from 'react-icons/ai';
+import { useState, FC, useCallback } from 'react';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 
 import Modal from './Modal';
 import Button from '../Button';
 import Header from '../Header';
 import Input from '../inputs/Input';
-import useRegisterModal from '@/hooks/useRegisterModal';
 import useLoginModal from '@/hooks/useLoginModal';
+import useRegisterModal from '@/hooks/useRegisterModal';
 
 interface RegisterModalProps {}
 
@@ -41,7 +41,9 @@ const RegisterModal: FC<RegisterModalProps> = ({}) => {
     axios
       .post('/api/register', data)
       .then(() => {
+        toast.success('Success');
         registerModal.onClose();
+        loginModal.onOpen();
       })
       .catch((error) => {
         console.log(error);

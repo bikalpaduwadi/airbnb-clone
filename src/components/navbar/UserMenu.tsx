@@ -1,15 +1,16 @@
 'use client';
 
-import { FC, useCallback, useState } from 'react';
 import { signOut } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 import { AiOutlineMenu } from 'react-icons/ai';
+import { FC, useCallback, useState } from 'react';
 
 import Avatar from '../Avatar';
 import MenuItem from './MenuItem';
 import { AppUser } from '@/types/user';
+import useRentModal from '@/hooks/useRentModal';
 import useLoginModal from '@/hooks/useLoginModal';
 import useRegisterModal from '@/hooks/useRegisterModal';
-import useRentModal from '@/hooks/useRentModal';
 
 interface UserMenuProps {
   currentUser?: AppUser | null;
@@ -20,6 +21,7 @@ const UserMenu: FC<UserMenuProps> = ({ currentUser }) => {
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
   const rentModal = useRentModal();
+  const router = useRouter();
 
   const onRent = useCallback(() => {
     if (!currentUser) {
@@ -27,6 +29,11 @@ const UserMenu: FC<UserMenuProps> = ({ currentUser }) => {
     }
     rentModal.onOpen();
   }, [currentUser, loginModal]);
+
+  const handleRedirection = (path: string) => {
+    router.push(path);
+    setIsOpen(false);
+  };
 
   return (
     <div className='relative'>
@@ -54,10 +61,22 @@ const UserMenu: FC<UserMenuProps> = ({ currentUser }) => {
           <div className='flex flex-col cursor-pointer'>
             {currentUser ? (
               <>
-                <MenuItem label='My trips' onClick={() => {}} />
-                <MenuItem label='My favorites' onClick={() => {}} />
-                <MenuItem label='My reservations' onClick={() => {}} />
-                <MenuItem label='My properties' onClick={() => {}} />
+                <MenuItem
+                  label='My trips'
+                  onClick={() => handleRedirection('/trips')}
+                />
+                <MenuItem
+                  label='My favorites'
+                  onClick={() => handleRedirection('/favorites')}
+                />
+                <MenuItem
+                  label='My reservations'
+                  onClick={() => handleRedirection('/reservations')}
+                />
+                <MenuItem
+                  label='My properties'
+                  onClick={() => handleRedirection('/properties')}
+                />
                 <MenuItem
                   label='Airbnb my home'
                   onClick={() => {
